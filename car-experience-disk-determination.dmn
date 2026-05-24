@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_RequestCarInsurance" name="Request Car Insurance" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.46.1" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.9.0">
+  <decision id="Decision_DetermineRisk" name="Determine Risk">
+    <informationRequirement id="InformationRequirement_1nqn7v5">
+      <requiredInput href="#experience" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0hergce">
+      <input id="Input_1" label="Experience">
+        <inputExpression id="InputExpression_1" typeRef="number">
+          <text>experience</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="Code" name="code" typeRef="string">
+        <outputValues id="UnaryTests_0pxinek">
+          <text>"red","yellow","green"</text>
+        </outputValues>
+      </output>
+      <rule id="DecisionRule_1298244">
+        <inputEntry id="UnaryTests_164h9df">
+          <text>&lt;=2</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1pw0swe">
+          <text>"red"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1bz3a7r">
+        <description>determine risk manually</description>
+        <inputEntry id="UnaryTests_0fup3yy">
+          <text>]2.0..3.0]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1mktkkz">
+          <text>"yellow"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1onp6nd">
+        <inputEntry id="UnaryTests_0u08mce">
+          <text>&gt;3</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_04hwr4o">
+          <text>"green"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="experience" name="Experience" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="Decision_0hc43zk_di" dmnElementRef="Decision_DetermineRisk">
+        <dc:Bounds height="80" width="180" x="160" y="100" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0dayrlq" dmnElementRef="experience">
+        <dc:Bounds height="45" width="125" x="187" y="337" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_03zmd1i" dmnElementRef="InformationRequirement_1nqn7v5">
+        <di:waypoint x="250" y="337" />
+        <di:waypoint x="250" y="200" />
+        <di:waypoint x="250" y="180" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
